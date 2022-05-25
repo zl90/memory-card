@@ -1,11 +1,11 @@
 import BestScore from "./BestScore/BestScore";
 import CurrentScore from "./CurrentScore/CurrentScore";
 
-const Score = () => {
+const Score = (props) => {
   return (
     <div className="score-container">
-      <CurrentScore />
-      <BestScore />
+      <CurrentScore currentScore={props.currentScore} />
+      <BestScore bestScore={props.bestScore} />
     </div>
   );
 };

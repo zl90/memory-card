@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.grid-item {
+  cursor: pointer;
+}
+
+.grid-item-image {
+  width: 150px;
+  height: 150px;
+}
