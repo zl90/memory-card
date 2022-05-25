@@ -45,6 +45,16 @@ const Grid = (props) => {
     return imageArray;
   };
 
+  const shuffleGridItems = () => {
+    // Randomize the order of simpsonsImages
+    let arr = simpsonsImages;
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    setSimpsonsImages(arr);
+  };
+
   const handleClick = (index) => {
     // First, check if the clicked image has already been clicked this round.
     // If so, the user has lost the game, and will need to start over.
@@ -67,9 +77,36 @@ const Grid = (props) => {
 
     // Set the new state.
     setSimpsonsImages(newArray);
+
+    // Shuffle the cards. [DISABLE THIS FOR DEBUGGING]
+    shuffleGridItems();
   };
 
-  const handleGameOver = () => {};
+  const handleGameOver = () => {
+    // Record the high score.
+    if (props.currentScore > props.bestScore) {
+      props.setBestScore(props.currentScore);
+    }
+    // Reset the current score.
+    props.setCurrentScore(0);
+
+    // Make sure the grid items reset properly.
+    unselectGridItems();
+
+    // Shuffle the cards.
+    shuffleGridItems();
+  };
+
+  const unselectGridItems = () => {
+    const newArray = simpsonsImages.map((object, i) => {
+      if (object.selected) {
+        object.selected = false;
+      }
+      return object;
+    });
+
+    setSimpsonsImages(newArray);
+  };
 
   return (
     <div className="grid-container">
