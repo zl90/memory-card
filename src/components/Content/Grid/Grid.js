@@ -2,7 +2,6 @@ import GridItem from "./GridItem/GridItem";
 import uniqid from "uniqid";
 import importAllImagesInDirectory from "./ImportAllImagesInDirectory";
 import { useEffect, useState } from "react";
-import { getThemeProps } from "@mui/system";
 
 const Grid = (props) => {
   const [simpsonsImages, setSimpsonsImages] = useState([]);
@@ -17,6 +16,23 @@ const Grid = (props) => {
     setSimpsonsImages(imagesArray);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // If the restart button has been clicked (see Description.js) then reset the grid.
+  useEffect(() => {
+    if (props.gameWasReset) {
+      // Unselect all grid items
+      unselectGridItems();
+
+      // Shuffle the grid.
+      shuffleGridItems();
+
+      // Reset the current score.
+      props.setCurrentScore(0);
+
+      props.setGameWasReset(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.gameWasReset]);
 
   // When the image data is imported, it's very ugly.
   // This function puts the data in an array of usable objects.
@@ -56,45 +72,64 @@ const Grid = (props) => {
   };
 
   const handleClick = (index) => {
-    // First, check if the clicked image has already been clicked this round.
-    // If so, the user has lost the game, and will need to start over.
-    if (simpsonsImages[index].selected) {
-      handleGameOver();
-      return null;
-    }
-
-    // Update the state to show the image at {index} has been clicked.
-    const newArray = simpsonsImages.map((object, i) => {
-      if (i === index) {
-        object.selected = true;
+    if (props.gameState === "play") {
+      // First, check if the clicked image has already been clicked this round.
+      // If so, the user has lost the game, and will need to start over.
+      if (simpsonsImages[index].selected) {
+        handleGameOver();
+        return null;
       }
 
-      return object;
+      // Update the state to show the image at {index} has been clicked.
+      const newArray = simpsonsImages.map((object, i) => {
+        if (i === index) {
+          object.selected = true;
+        }
+
+        return object;
+      });
+
+      // Set the new state.
+      setSimpsonsImages(newArray);
+
+      // Increment the score.
+      props.setCurrentScore(props.currentScore + 1);
+
+      if (playerHasWon()) {
+        handleGameWon();
+      } else {
+        // Shuffle the cards.
+        shuffleGridItems();
+      }
+    }
+  };
+
+  const handleGameWon = () => {
+    props.setGameState("win");
+
+    // Record the high score
+    props.setBestScore(simpsonsImages.length);
+  };
+
+  const playerHasWon = () => {
+    // Check if all the cards have been selected (player wins!)
+    let win = true;
+    simpsonsImages.map((object, i) => {
+      if (!object.selected) {
+        win = false;
+      }
+      return null;
     });
-
-    // Increment the score.
-    props.setCurrentScore(props.currentScore + 1);
-
-    // Set the new state.
-    setSimpsonsImages(newArray);
-
-    // Shuffle the cards. [DISABLE THIS FOR DEBUGGING]
-    shuffleGridItems();
+    return win;
   };
 
   const handleGameOver = () => {
+    props.setGameState("lose");
+
     // Record the high score.
     if (props.currentScore > props.bestScore) {
       props.setBestScore(props.currentScore);
     }
-    // Reset the current score.
-    props.setCurrentScore(0);
-
-    // Make sure the grid items reset properly.
-    unselectGridItems();
-
-    // Shuffle the cards.
-    shuffleGridItems();
   };
 
   const unselectGridItems = () => {
@@ -119,6 +154,8 @@ const Grid = (props) => {
             onClick={() => {
               handleClick(i);
             }}
+            selected={object.selected}
+            gameState={props.gameState}
           />
         );
       })}
