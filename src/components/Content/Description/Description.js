@@ -1,3 +1,7 @@
+import * as React from "react";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+
 const Description = (props) => {
   const handleClick = () => {
     // Restart the game.
@@ -10,33 +14,43 @@ const Description = (props) => {
       case "play":
         return (
           <div className="display-play">
-            Click any card! Can you remember which cards you <em>haven't</em>{" "}
-            clicked?
+            Click every card once. Don't click a card twice! Can you click them
+            all?
           </div>
         );
       case "lose":
         return (
           <div className="display-lose">
             You lose. Better luck next time!
-            <button onClick={handleClick} className="restart-button">
+            <Button
+              variant="contained"
+              onClick={handleClick}
+              className="restart-button"
+              color="error"
+            >
               Restart
-            </button>
+            </Button>
           </div>
         );
       case "win":
         return (
           <div className="display-win">
             Congratulations, you win!
-            <button onClick={handleClick} className="restart-button">
+            <Button
+              variant="contained"
+              onClick={handleClick}
+              className="restart-button"
+              color="error"
+            >
               Restart
-            </button>
+            </Button>
           </div>
         );
       default:
         return (
           <div className="display-play">
-            Click any card! Can you remember which cards you <em>haven't</em>{" "}
-            clicked?
+            Click every card once. Don't click a card twice! Can you click them
+            all?
           </div>
         );
     }
