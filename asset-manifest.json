@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/memory-card/static/css/main.8ff6d7de.css",
+    "main.js": "/memory-card/static/js/main.a0efcd74.js",
+    "static/media/background.jpg": "/memory-card/static/media/background.4073c3b0f947850f7478.jpg",
+    "static/media/lisa-simpson.jpg": "/memory-card/static/media/lisa-simpson.3c8fb8bb1122659b1c2f.jpg",
+    "static/media/apu.jpg": "/memory-card/static/media/apu.aa15b89cdaf9d8f661b6.jpg",
+    "static/media/homer-simpson.jpg": "/memory-card/static/media/homer-simpson.d3fd9d9a91ca41169ac9.jpg",
+    "static/media/ralph-wiggum.jpg": "/memory-card/static/media/ralph-wiggum.d8bf77f505c0db880616.jpg",
+    "static/media/doctor-hibbert.jpg": "/memory-card/static/media/doctor-hibbert.e9ae82c30e6a544fc8af.jpg",
+    "static/media/professor-frink.jpg": "/memory-card/static/media/professor-frink.a0d0a3b7bda33c9f717c.jpg",
+    "static/media/nelson-muntz.jpg": "/memory-card/static/media/nelson-muntz.88496f9a6b438c8db7ff.jpg",
+    "static/media/waylon-smithers.jpg": "/memory-card/static/media/waylon-smithers.ec32302b697f88496f13.jpg",
+    "static/media/barney-gumble.jpg": "/memory-card/static/media/barney-gumble.769b3935f67c8086143b.jpg",
+    "static/media/maggie-simpson.jpg": "/memory-card/static/media/maggie-simpson.90ef6ca5342331ea78e3.jpg",
+    "static/media/mr.-burns.jpg": "/memory-card/static/media/mr.-burns.cc6178bb22c1a306e6b8.jpg",
+    "static/media/jimbo-jones.jpg": "/memory-card/static/media/jimbo-jones.7261172d996233870896.jpg",
+    "static/media/sherri-and-terri.jpg": "/memory-card/static/media/sherri-and-terri.181820e4eb3a9d8a6531.jpg",
+    "static/media/jasper-beardly.jpg": "/memory-card/static/media/jasper-beardly.ab0eec5aba926409f9cc.jpg",
+    "static/media/joe-quimby.jpg": "/memory-card/static/media/joe-quimby.65e1cd0997831dba216c.jpg",
+    "static/media/kirk-vanhouten.jpg": "/memory-card/static/media/kirk-vanhouten.99d64b1d97c8602e4bdb.jpg",
+    "static/media/martin-prince.jpg": "/memory-card/static/media/martin-prince.ed8a8ed7307211d199ea.jpg",
+    "static/media/troy-mclure.jpg": "/memory-card/static/media/troy-mclure.31477fe4eac9f2fabb1a.jpg",
+    "static/media/abe-simpson.jpg": "/memory-card/static/media/abe-simpson.175505f37cf66c2ace16.jpg",
+    "static/media/ned-flanders.jpg": "/memory-card/static/media/ned-flanders.954e1c27333bc0e4e8ba.jpg",
+    "static/media/s.-i.-chalmers.jpg": "/memory-card/static/media/s.-i.-chalmers.5b636b7ae57a64cef109.jpg",
+    "static/media/milhouse-vanhouten.jpg": "/memory-card/static/media/milhouse-vanhouten.901b7cdd7d389d4c3f15.jpg",
+    "index.html": "/memory-card/index.html",
+    "main.8ff6d7de.css.map": "/memory-card/static/css/main.8ff6d7de.css.map",
+    "main.a0efcd74.js.map": "/memory-card/static/js/main.a0efcd74.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8ff6d7de.css",
+    "static/js/main.a0efcd74.js"
+  ]
+}
